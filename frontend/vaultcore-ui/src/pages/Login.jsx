@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { loginUser, saveToken } from "../services/authService";
 import "../styles/Login.css";
+import { Link } from "react-router-dom";
 
 function Login() {
 
@@ -66,6 +67,9 @@ function Login() {
           <button className="login-btn" type="submit">
             Login
           </button>
+          <p style={{marginTop:"15px"}}>
+  Don't have an account? <Link to="/register">Register</Link>
+</p>
 
         </form>
 
