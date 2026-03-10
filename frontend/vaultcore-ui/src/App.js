@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
+import Success from "./pages/Success";
 
 import Balance from "./pages/banking/Balance";
 import Transfer from "./pages/banking/Transfer";
@@ -35,6 +36,8 @@ function App(){
         <Route path="/trading" element={<Trading/>} />
 
         <Route path="/portfolio" element={<Portfolio/>} />
+
+        <Route path="/success" element={<Success />} />
 
         <Route path="/ledger" element={<Ledger/>} />
 
