@@ -30,29 +30,26 @@ function Register(){
 
   };
 
-  const handleSubmit=(e)=>{
+  const generateAccountNumber = () => {
+  return "VCB" + Math.floor(100000000 + Math.random() * 900000000);
+};
 
-    e.preventDefault();
+ const handleSubmit = (e) => {
+  e.preventDefault();
 
-    if(form.password !== form.confirmPassword){
-      setMessage("Passwords do not match");
-      return;
-    }
+  if(form.password !== form.confirmPassword){
+    setMessage("Passwords do not match");
+    return;
+  }
 
-    // Mock user exists condition
-    if(form.email === "test@example.com"){
-      setMessage("User already exists. Redirecting to login...");
-      setTimeout(()=>navigate("/"),2000);
-      return;
-    }
+  const accountNumber = generateAccountNumber();
 
-    setMessage("Registration successful. Redirecting to login...");
+  // Save temporarily in localStorage
+  localStorage.setItem("accountNumber", accountNumber);
+  localStorage.setItem("userName", form.fullName);
 
-    setTimeout(()=>{
-      navigate("/");
-    },2000);
-
-  };
+  navigate("/success");
+};
 
   return(
 
